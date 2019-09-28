@@ -1,0 +1,6 @@
+. 表示匹配除换行符以外的任意一个字符 注意是一个
+* 表示前面那个字符(前面一个字符)，重复0次或更多次 a* -> a   aa aaa aaa....   a*b -> ab  aab  aaaab
+.* 表示贪婪算法，尽可能重复多次 遇到a就开始截取，然后找所有的b，最后找到以b结尾尽可能长的一段字符串，最长 >>> re.findall(r'a.*b', str1) ['aababaab']
+.*? 表示非贪婪的，遇到一次停一次 re.findall(r'a.*?b', str1) -》 ['aab', 'ab', 'aab']
+
+str1 = 'aababaaba'
