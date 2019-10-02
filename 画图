@@ -1,0 +1,116 @@
+https://www.jianshu.com/p/9a70ad7fab15
+import matplotlib.pyplot as plt 
+单个图
+plt.plot(epoch_list,cost_list) #绘制（x，y,c（颜色，r,b,g,k）,ls（线类型'-' '--'）,lw（线宽）,label(图例)）
+plt.axis()
+plt.xlabel("epochs")
+plt.savefig("./train_image/SAE_1.png")
+plt.show()
+单个图 多条线
+plt.plot(epoch_list,cost_list,color = 'k',label = "avg_loss",ls = '-',lw =1)
+plt.plot(epoch_list,ccost_list,color = 'r',label = "packet_loss",ls = '--',lw =0.5)
+plt.plot(epoch_list,tcost_list,color = 'b',label = "traffic_loss",ls = '--',lw =0.5)
+plt.legend() # 显示图例
+plt.ylabel("loss value")
+plt.xlabel("Run number")
+plt.savefig("./fine_tune/loss.png")
+plt.show()
+多个子图
+
+ax1 = plt.subplot(2,1,1)
+plt.plot(epoch_list,train_ac_list,color = 'green',label = "Train_acc")
+plt.plot(epoch_list,test_ac_list,color = 'red',label = "Test+_acc")
+plt.axis()
+plt.legend()
+plt.ylabel("accuracy")
+plt.xlabel("epochs")
+ax1.set_title("accuracy-epochs")
+
+ax2 = plt.subplot(2,1,2)
+plt.plot(epoch_list,train_cost_list,color = 'green',label = "Train_cost")
+plt.plot(epoch_list,test_cost_list,color = 'red',label = "Test+_cost")
+plt.axis()
+plt.legend()
+plt.ylabel("loss")
+plt.xlabel("epochs")
+ax2.set_title("loss-epochs")
+plt.savefig("./train_image/SAE_1.png")
+plt.tight_layout()
+plt.show()
+
+#----------------------标准----------------
+单个
+import matplotlib.pyplot as plt 
+from matplotlib.pylab import mpl
+mpl.rcParams['font.sans-serif'] = ['SimHei']  # 中文显示
+mpl.rcParams['axes.unicode_minus'] = False  # 负号显示
+# 创建画布，无子图该步骤可省略
+a = plt.figure(figsize=(8, 14), dpi=80)
+# 添加标题
+plt.title('图像')
+# 添加x，y轴名称
+plt.xlabel('x')
+plt.ylabel('y')
+# 添加x，y轴范围
+plt.xlim(0, 1)
+plt.ylim(0, 1)
+# 添加x，y轴刻度
+plt.xticks([0, 0.2, 0.4, 0.6, 0.8, 1])
+plt.yticks([0, 0.2, 0.4, 0.6, 0.8, 1])
+# 绘制曲线
+plt.plot(x, y, 'g-.', x, z, 'b--')
+# 绘制图例，该步骤应在绘图后
+plt.legend(['y = x', 'z = x^2'])
+# 保存图片, dpi为清晰度，数值越高越清晰
+plt.savefig('E:/data analysis by python/1.png', dpi=500)
+# 显示图像，必须加这一句，不然看不到图像
+plt.show()
+
+多个子图
+# 确定数据
+x = np.arange(0, 1, 0.01)
+y = x
+z = x**2
+# 创建画布，无子图该步骤可省略
+a = plt.figure(figsize=(14, 7), dpi=80)
+# 创建两行一列子图中的第一幅子图
+a1 = a.add_subplot(1, 2, 1)
+# 添加标题
+plt.title('图像')
+# 添加x，y轴名称
+plt.xlabel('x')
+plt.ylabel('y')
+# 添加x，y轴范围
+plt.xlim(0, 1)
+plt.ylim(0, 1)
+# 添加x，y轴刻度
+plt.xticks([0, 0.2, 0.4, 0.6, 0.8, 1])
+plt.yticks([0, 0.2, 0.4, 0.6, 0.8, 1])
+# 绘制曲线
+plt.plot(x, y, x, z)
+# 绘制图例，该步骤应在绘图后
+plt.legend(['y = x', 'z = x^2'])
+
+# 创建两行一列子图中的第二幅子图
+a2 = a.add_subplot(1, 2, 2)
+# 添加标题
+plt.title('图像')
+# 添加x，y轴名称
+plt.xlabel('x')
+plt.ylabel('y')
+# 添加x，y轴范围
+plt.xlim(0, 1)
+plt.ylim(0, 1)
+# 添加x，y轴刻度
+plt.xticks([0, 0.2, 0.4, 0.6, 0.8, 1])
+plt.yticks([0, 0.2, 0.4, 0.6, 0.8, 1])
+# 绘制曲线
+plt.plot(x, np.sin(x), x, np.tan(x))
+# 绘制图例，该步骤应在绘图后
+plt.legend(['y = sin x', 'z = tan x'])
+# 保存图片
+#plt.savefig('E:/data analysis by python/2.png')
+# 显示图像，必须加这一句，不然看不到图像
+plt.show()
+
+     
